@@ -1,0 +1,1344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Laphinus_WebNav</title>
+    <meta name="Keywords" content=""/>
+    <meta name="Description" content=""/>
+   <!-- Bootstrap -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="jquery.min.js"></script>  
+<!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+-->
+	<!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.min.js"></script>
+    
+    
+    <style type="text/css">
+      body{
+        font-family:'Microsoft Yahei', sans-serif;
+        background-size:100% auto;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        background-size:cover;
+	background-color:#f1f1f1;
+      }
+      nav.navbar{
+        margin:30px 0 10px 0;
+      }
+          div.navbar-header{
+            padding:10px 5px 5px 18px;
+          }
+          ul.navbar-right li{
+            margin-left:10px;
+          }
+          ul.navbar-right a:link, ul.navbar-right a:visited{
+            color:#333631;
+          }
+          ul.navbar-right a:hover{
+            color:#9d2933;
+            background-color:transparent;
+          }
+          ul.navbar-right a:focus{
+            outline:none;
+            background-color:transparent;
+          }
+      img.logo-pic{
+        height:40px;
+        width:65px;
+        background-position:0px -50px;
+      }
+      div.content{
+        display:block;
+        z-index:1;
+      }
+      div.blocks{
+        margin:0 auto;
+        float:none;
+      }
+          div.block{
+            margin:0;
+            padding:3px;
+            opacity:0.9;
+          }
+          div.building{
+            border-radius:2px;		
+	    
+	    height: 180px;
+            /*border:1px solid rgb(231, 231, 231); height:100%;*/
+
+            /*box-shadow:-1px 0 1px -1px rgba(0,0,0,0.1), 
+            1px 0 1px -1px rgba(0,0,0,0.1), 
+            0 2px 2px -2px rgba(0,0,0,0.1);
+            box-shadow:1px 3px 2px -2px rgba(0,0,0,0.1);*/
+          }
+          div.block-header{
+            margin:0;
+            padding-bottom:2px;
+          }
+              div.block-desc{
+                padding:0;
+              }
+              div.block-name{
+                text-align:center;
+                
+                padding:1px 1px 1px 1px;
+              }
+              div.block-name a.block-name, div.block-name a.block-name:visited{
+                position:relative;
+                padding-top:2px;
+                display:block;
+                color:#292C2F;
+		font-weight:bold;
+                font-size:15px;
+                line-height:32px;
+                height:32px;
+                border-radius:2px;
+                text-decoration:none;
+                z-index:10;
+              }
+              div.block-name a.block-name.hover{
+                padding-top:2px;
+                color:#ffffff;
+                text-decoration:none;
+                background-color:#2C3E50;
+		font-size:16px;
+                white-space:nowrap;
+              }
+              div.block-action{
+                text-align:center;
+              }
+              a.block-open-all{
+                float:right;
+              }
+              div.category-confirm-content{
+                padding:10px;
+                text-align:center;
+              }
+              div.category-confirm-option{
+                text-align:center;
+              }
+              div.category-confirm-button{
+                margin:0 auto 15px;
+                width:200px;
+              }
+          div.website{
+            padding:1px;
+          }
+          div.website a.website:link, 
+          div.website a.website:visited{
+            background-color:#ffffff;
+            display:block;
+            position:relative;
+            text-align:center;
+            text-decoration:none;
+            line-height:45px;
+            height:45px;
+            font-size:14px;
+            border-radius:2px;
+            color:#474a4d;
+            z-index:10;
+            transition-property:background-color, color, font-size;
+            transition-duration:0.2s;
+            transition-timing-function:ease;
+          }
+          div.website a span{
+            display:block;
+            height:100%;
+            width:100%;
+            overflow:hidden;
+          }
+          div.website a.website.hover{
+            background-color:#2c3e50;
+            color:#ffffff;
+            font-size:17px;
+          }
+      div.modal-body{
+        padding:0;
+      }
+          div.modal-section{
+            margin:0 auto;
+          }
+          
+      /*------------------------------------自定义------------------------------------*/
+      div.modal-content{
+        background:#f4f4f4;
+	width:760px;
+	top:50px;height:500px;
+      } 
+
+
+
+
+/*-----------快捷键面板-----------------*/
+          div.hotkey-modal-keyboard{
+     
+margin:0 auto;       
+        height:300px;
+	
+      }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-row{
+            float:left;
+            list-style:none;
+            display:block;
+            margin:0;
+            padding:0;
+            clear:both;
+            width:100%;
+            height:49px;
+          }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-1st-row{
+            margin:10px 0 0 35px;
+          }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-2nd-row{
+            margin:0 0 0 62px;
+          }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-3rd-row{
+            margin:0 0 0 89px;
+          }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-4th-row{
+            margin:0 0 0 116px;
+          }
+          div.hotkey-modal-keyboard ul.hotkey-modal-keyboard-5th-row{
+            margin:0 0 0 160px;
+          }
+          div.hotkey-modal-keyboard li.hotkey-modal-key{
+            display:block;
+            float:left;
+            margin:0 4px 4px 0;
+            width:54px;
+            height:46px;
+            text-align:center;            
+            background-color:#5B6259;
+            color:#ffffff;
+            border-radius:5px;            
+            overflow:hidden;
+          }
+          div.hotkey-modal-keyboard li.hotkey-modal-space{
+            width:400px;
+            margin:0;
+          }
+          div.hotkey-modal-keyboard span.letter{
+            display:block;
+            font-size:16px;
+          }
+          div.hotkey-modal-keyboard span.website-name{
+            display:block;
+            font-size:12px;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+          }
+          div.hotkey-modal-keyboard li.hotkey-modal-key.hover{
+            position:relative;
+            top:2px;
+            left:2px;
+            border-color:#0DA081;
+            background-color:#0DA081;
+            color:#ffffff;
+          }
+/*-----------更多网站面板-----------------*/
+	div#more-website-grid{
+        margin:0 auto;        
+        height:400px; width:760px;	
+        background-color:inherit;
+        padding-top:1px;
+	padding-left:10px;
+        overflow:scroll;
+        border-radius:0;
+        border:none;
+	      position:center;
+        -webkit-box-shadow:none;
+        box-shadow:none;
+      }
+         div.website-grid{
+            height:400px;
+            display:block; 	          
+            border-radius:5px;
+            padding:1px 0;
+            overflow:scroll;
+            border:1px solid #dcdddd;
+            box-shadow:0 0 8px #dcdddd;
+            -webkit-box-shadow:0 0 8px #dcdddd;
+            -moz-box-shadow:0 0 8px #dcdddd;
+            outline:0 none;
+          }
+              div.website-grid ul{
+                padding:0;
+                display:block;
+                float:left;
+                clear:both;
+              }
+              div.website-grid div#website-grid-alignment{
+                width:520px;
+                margin:0 auto;
+              }
+              div.website-grid ul.website-categories{
+		margin-left:22px;
+                margin-bottom:2px;
+              }             
+              div.website-grid li.website-category{
+                display:inline;
+                float:left;
+                width:72px;
+                height:34px;
+                font-size:15px;
+                text-align:center;
+                border-top:1px solid #ffffff;
+                color:#595857;
+                margin-right:3px;
+                margin-bottom:3px;
+                overflow:hidden;
+              }
+              div.website-grid li.website-category.hover{
+                border-top:1px solid #1e50a2;
+                color:#1e50a2;
+                cursor:pointer;
+                font-size:16px;
+              }
+              div.website-grid li.website-category.selected{
+                border-top:1px solid #1e50a2;
+                color:#1e50a2;
+                cursor:pointer;
+                font-size:16px;
+              }
+	      div.website-grid ul.websites{
+                width:750px;
+                padding-top:5px;
+                position:relative;
+              }
+              div.website-grid li.website{
+                position:relative;
+                display:block;
+                background-color:#ffffff;
+                float:left;
+                width:120px;
+                height:40px;
+                line-height:36px;
+                text-align:center;
+                font-size:15px;
+		border-radius:2px;
+                overflow:hidden;
+                margin-right:2px;
+                margin-bottom:5px;
+                z-index:1;
+              }     
+	div.website-grid li.website a{
+		text-decoration:none;
+              }                                     
+          div.website-grid li.website.hover{                
+		background-color:#C0C0C0;
+            	color:#ffffff;
+           	font-size:20px;
+                cursor:pointer;
+		text-decoration:none;
+              }  
+
+div#searchModal .modal-body{
+	width:300px;
+	height:200px;
+} 	      	
+    </style>    
+  </head>
+  <body>
+   <!--
+	使用说明
+	var hotkey={} 
+var webCategory={"commonWebsites":"常用"} 
+var commonWebsites={}
+var webCategoryStrToObj ={"sportsWebsites":sportsWebsites}
+   -->
+	 
+           <div class="content">
+      <nav class="navbar" role="navigation">
+        <div class="container">
+          <div class="navbar-header"> 
+	<iframe width="340px" scrolling="yes" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?
+
+c=code&id=12&icon=1&py=luoyuan&num=5&site=12"></iframe>
+            	
+          </div>          
+            <ul class="nav navbar-nav navbar-right" style="margin:10px;">
+              <li><a href="#" data-toggle="modal" data-target="#moreSitesModal" id="more-sites">更多站点</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#hotkeyModal" id="hotkey">快捷键</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#searchModal" id="search_key">搜索</a></li>                
+            </ul>
+          </div>        
+      </nav>
+    
+      <!--#website_dict，blockNo和website序列的字典-->
+      <!--#block_list，区块列表-->
+      <div class="container blocks fluid">
+                   
+      <!--上面为主体导航内容-->
+      </div>
+
+  </div>
+    <!--更多站点弹层-->
+    <div class="modal fade" id="moreSitesModal" tabindex="-1" role="dialog" aria-labelledby="sentenceModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="点击窗口外任意区域也可关闭"><span aria-
+
+hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="sentenceModalLabel">更多站点</h3>
+          </div>
+          <div class="modal-body">
+            <div class="modal-section">
+              <div class="website-grid" id="more-website-grid">
+                <div id="more-website-grid-alignment">
+                  <ul class="website-categories">
+                  </ul>
+                  <ul class="websites">
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--搜索弹层-->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"style="width:560px;height:300px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel" >搜索</h4>
+            </div>
+            <div class="modal-body"><!-- 全能搜 -->
+	<div style="width:450px;margin:50px;" >
+  	<span style="height:100px;font-size:20px;color:#008B8B">全能搜</span>
+    	<input type="text" style="width:82%;margin:auto;height:35px" name="wd" id="search"  placeholder="先输入关键词，再选择相应的检索平台，即刻检索。默认回车为百度搜
+
+索，谷歌搜索需翻墙" baiduSug="2"  value=" " >
+      
+    	<P>
+      	<center id="search-btns"style="padding-left:50px;" >
+     	 </center>
+    	</P>         
+        </div>
+	</div>
+          </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+         
+
+    <!--快捷键弹层-->
+    <div class="modal fade" id="hotkeyModal" tabindex="-1" role="dialog" aria-labelledby="sentenceModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="点击窗口外任意区域也可关闭"><span aria-
+
+hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="sentenceModalLabel">快捷键</h3>
+            <span>按下快捷键，即可直达站点</span>
+          </div>
+          <div class="modal-body">
+            <div class="modal-section">
+              <div class="hotkey-modal-keyboard modal-section" id="hotkey-modal-keyboard">
+                <ul class="hotkey-modal-keyboard-row hotkey-modal-keyboard-1st-row">
+                  <li class="hotkey-modal-key"><span class="letter 1">1</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 2">2</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 3">3</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 4">4</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 5">5</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 6">6</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 7">7</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 8">8</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 9">9</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter 0">0</span><span class="website-name"></span></li>
+                </ul>
+                <ul class="hotkey-modal-keyboard-row hotkey-modal-keyboard-2nd-row">
+                  <li class="hotkey-modal-key"><span class="letter q">Q</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter w">W</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter e">E</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter r">R</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter t">T</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter y">Y</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter u">U</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter i">I</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter o">O</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter p">P</span><span class="website-name"></span></li>
+                </ul>
+                <ul class="hotkey-modal-keyboard-row hotkey-modal-keyboard-3rd-row">
+                  <li class="hotkey-modal-key"><span class="letter a">A</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter s">S</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter d">D</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter f">F</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter g">G</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter h">H</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter j">J</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter k">K</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter l">L</span><span class="website-name"></span></li>
+                </ul>
+                <ul class="hotkey-modal-keyboard-row hotkey-modal-keyboard-4th-row">
+                  <li class="hotkey-modal-key"><span class="letter z">Z</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter x">X</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter c">C</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter v">V</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter b">B</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter n">N</span><span class="website-name"></span></li>
+                  <li class="hotkey-modal-key"><span class="letter m">M</span><span class="website-name"></span></li>
+                </ul>
+                <ul class="hotkey-modal-keyboard-row hotkey-modal-keyboard-5th-row">
+                  <li class="hotkey-modal-key hotkey-modal-space"><span class="letter space">Space</span><span class="website-name"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<script>
+      $(document).ready(function(){
+        //$("body").css("background-image","url(https://images.pexels.com/photos/1428626/pexels-photo-1428626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)");
+        //自定义改动，避免出现先加载原始站点，然后又更新部分站点信息的情况；设置整体div.blocks为透明，不影响resize，并且可以做到在获取storage数据后再取消透明
+        //$("div.blocks").css('opacity','0');
+        $(window).resize(function(){
+          var top_in_digits = ($(window).height() - $("div.content").outerHeight())/4;
+          top_in_digits = (top_in_digits > 0)?top_in_digits:0;
+          $("div.content").css({
+            position:"relative",
+            top:top_in_digits,
+            margin:"0 auto",
+            float:"none",
+            display:"inherit"
+          });
+        });
+/*快捷键数据*/
+var hotkey ={"0":"BtNull","5":"500","8":"直播吧","b":"BiliBili","c":"chiphell","d":"豆瓣","f":"飞速直播","g":"github","h":"虎扑","j":"竞彩","m":"慢慢买","p":"百度网盘","s":"什么值得买","r":"runoob","t":"腾讯体育","x":"雪球","y":"优直播","z":"知乎"};
+/*下面是数据部分*/  
+//隐藏："sohoWebsites":"SOHO",      
+var webCategory ={"commonWebsites":"常用","govWebsites":"政府","navWebsites":"导航","deepWebsites":"深度","shoppingWebsites":"购物","finWebsites":"财经"
+		,"businessWebsites":"商业","videoWebsites":"视频","sportsWebsites":"体育","techMediaWebsites":"科媒","softwareWebsites":"软件","programWebsites":"程序","designWebsites":"设计","GfwWebsites":"科学上网","officialWebsites":"官网","psWebsites":"psWebsites","toolsWebsites":"Tools"		
+		,"sportHealthWebsites":"运动健康","funWebsites":"爱好","discoveryWebsites":"发现","learningWebsites":"学习","languageWebsites":"语言","travelWebsites":"出行","mailWebsites":"邮箱","ebookWebsites":"电子书"
+		,"childrenWebsites":"儿童","writtingWebsites":"写作","peopleWebsites":"便民","complaintWebsites":"投诉","nativeWebsites":"本地",vehicleWebsites:"车",houseWebsites:"房"};
+var socialWebsites ={
+
+};
+var officialWebsites ={
+"PotPlayer":"https://daumpotplayer.com/"
+,"everything":"https://www.voidtools.com"
+,"wordpress":"https://wordpress.org/"
+,"drupal":"https://www.drupal.org/"
+,"XDM":"http://xdman.sourceforge.net/"
+,"thunderbird":"https://www.thunderbird.net/zh-CN/"
+,"freemdict":"https://freemdict.com/"
+,"掌上PDA":"https://www.pdawiki.com/"
+};
+
+
+var businessWebsites ={
+	"人人都是产品经理":"http://www.woshipm.com/"
+	,"增长黑客":"	https://www.growthhk.cn/"	
+};
+var nativeWebsites ={
+"东南网":"http://www.fjsen.com/"
+,"福州新闻网":"http://www.fznews.com.cn/"
+,"福州本地宝":"http://fz.bendibao.com/"
+,"福州明珠":"http://www.zohi.tv/"
+,"罗源政府网":"http://www.luoyuan.gov.cn/"
+,"罗源湾之窗":"https://www.lywzc.com/"
+}
+
+var  complaintWebsites ={
+"福州12345":"http://fz12345.fuzhou.gov.cn/"
+,"黑猫投诉":"https://tousu.sina.com.cn/"
+,"邮政申诉":"http://sswz.spb.gov.cn/"
+};
+var  peopleWebsites ={
+"12306":"https://www.12306.cn"
+,"8684":"https://www.8684.cn/"
+,"高德地图":"https://ditu.amap.com/"
+,"裁判文书网":"http://wenshu.court.gov.cn/"
+,"中国执行信息公开网":"http://zxgk.court.gov.cn/"
+};
+var sohoWebsites ={
+    "猪八戒":"https://fuzhou.zbj.com/"
+,"自由人":"http://www.freemancn.com/"
+};
+
+var deepWebsites ={
+	"芒格学院":"https://www.madewill.com/"
+	,"Farnam Street":"https://fs.blog/"
+	,"LatticeworkInvesting":"http://latticeworkinvesting.com/"
+	,"wise-geek":"https://www.wise-geek.com/"
+,"前瞻网":"https://xw.qianzhan.com/"
+,"爱思想":"http://www.aisixiang.com/"
+,"知网":"https://www.cnki.net/"
+}
+
+var writtingWebsites ={
+    "新榜":"https://www.newrank.cn/"
+,"稿稿":"http://gg.bqj.cn/"
+,"写手之家":"http://www.xs91.net/"
+,"作家网":"http://www.zuojiawang.com/"}
+
+var travelWebsites ={
+"穷游":"https://www.qyer.com/"
+,"airbnb":"https://www.airbnb.cn"
+,"booking":"https://www.booking.com"
+,"8264":"http://bbs.8264.com/"
+}; 
+
+var houseWebsites ={
+"安居客":"http://anjuke.com"
+,"房天下":"https://www.fang.com/"
+,"链家":"http://www.lianjia.com/"
+,"自如":"http://www.ziroom.com/"
+,"贝壳":"www.ke.com"
+,"58":"www.58.com"
+,"优区生活":"https://www.u-area.com/"
+}
+var childrenWebsites ={
+"pcbaby":"https://edu.pcbaby.com.cn/"
+,"babytv":"https://www.babytv.com/"
+,"nickjr":"http://www.nickjr.tv/"
+,"tlsbooks":"http://www.tlsbooks.com/"
+,"discoveryeducation":"https://www.discoveryeducation.com/"
+,"funbrain":"https://www.funbrain.com"
+,"nationalgeographic":"https://kids.nationalgeographic.com/"
+,"rong-chang":"https://www.rong-chang.com/"
+,"timeforkids":"https://www.timeforkids.com/"
+,"khanacademy":"https://zh.khanacademy.org/"
+,"scratch":"https://scratch.mit.edu/"
+};
+var learningWebsites ={
+"网易公开课":"https://open.163.com/"
+,"可汗学院":"https://www.khanacademy.org/"
+,"译学馆":"https://www.yxgapp.com/"
+,"Coursade":"http://www.coursade.com/"
+,"公开课导航":"https://coursegraph.com/navigation/"
+,"crashcourse中文":"https://crashcourse.club/category/"
+,"ankiweb":"https://ankiweb.net/shared/decks/"
+," 许七安的宝库":"http://sj.ysupan.com/qianxx#/"
+};
+var commonWebsites={
+"anyknew":"https://www.anyknew.com/"
+,"今日热榜":"https://tophub.today/"
+,"今日头条":"https://www.toutiao.com/"
+,"知乎":"https://www.zhihu.com/search?type=content&q="
+,"虫部落":"https://www.chongbuluo.com/"
+,"阿里云盘":"https://www.alipan.com/"
+,"百度网盘":"https://pan.baidu.com/"
+,"豆瓣":"https://www.douban.com/"
+,"简书":"https://www.jianshu.com/"
+,"有道云笔记":"https://note.youdao.com/"
+,"v2ex":"https://www.v2ex.com/t/197786"
+,"微信.搜狗":"https://weixin.sogou.com/"
+,"翻译":"http://fanyi.youdao.com"
+}
+
+var navWebsites ={
+"小呆导航":"https://www.webjike.com/"
+,"Anything":"http://lackar.com/aa/"
+,"外国网站大全":"https://www.egouz.com/"
+,"北邮人导航":"http://byr.wiki/"
+,"龙喵":"http://ailongmiao.com/"
+,"web directory":"https://botw.org/"
+,"5566":"https://www.5566.net/"
+,"龙轩导航":"http://ilxdh.com/"
+};
+
+var govWebsites={"发改委":"http://www.ndrc.gov.cn/",
+"央行":"http://www.pbc.gov.cn/",
+"商务部":"http://www.mofcom.gov.cn/",
+"财政部":"http://www.mof.gov.cn/index.htm",
+"统计局":"http://www.stats.gov.cn/",
+"证监会":"http://www.csrc.gov.cn/pub/newsite/",
+"工信部":"http://www.miit.gov.cn/"}
+
+var sportsWebsites={"腾讯体育":"https://sports.qq.com/",
+"虎扑":"https://www.hupu.com/",
+"极速体育":"http://www.jisutiyu.com/",
+"优直播":"https://m.yoozhibo.net/",
+"TV直播":"https://tvzhibo.com/zuqiu/",
+"飞速直播":"http://feisuzhibo.com/",
+"直播吧":"https://m.zhibo8.cc/",
+"cctv5":"http://tv.cctv.com/live/cctv5/",
+"500":"https://trade.500.com/jczq/index.php?playid=271&g=2",
+"竞彩":"https://www.sporttery.cn/jc/zqszsc/",
+};
+
+var sportHealthWebsites={"医学微视":"http://www.mvyxws.com/",
+"香港卫生署":"https://www.dh.gov.hk/scindex.html",
+"HI运动健身网":"https://www.hiyd.com/",
+"丁香园":"http://www.dxy.cn/"
+};
+
+
+var shoppingWebsites={
+"盖得排行":"https://guiderank-app.com/",
+"什么值得买":"https://www.smzdm.com/",
+"慢慢买":"http://www.manmanbuy.com/",
+"海外购":"http://www.letsebuy.com/",
+"支付宝":"https://www.alipay.com/",
+"淘宝":"https://www.taobao.com/",
+"天猫":"https://www.tmall.com/"
+};
+
+var languageWebsites ={
+	"englishints":"https://www.englishhints.com/"
+	,"learnthat":"https://www.learnthat.org/"
+	,"learnenglish":"https://www.learnenglish.de/"
+	,"eslbuzz":"https://www.eslbuzz.com/"
+	,"aboboo":"http://www.aboboo.com/"
+	,"quizlet":"https://quizlet.com"
+	,"etymonline":"https://www.etymonline.com/"
+	,"engvid":"https://www.engvid.com/"//free english video lessons
+	,"词源字典":"http://www.etymon.cn/index.html"
+,"prefixsuffix":"http://www.prefixsuffix.com"
+,"Engfluent":"https://engfluent.com"
+,"沪江英语":"https://www.hjenglish.com/"
+,"小e英语":"https://www.en8848.com.cn"
+,"可可英语":"http://m.kekenet.com/"
+,"田间小站":"https://www.tianfateng.cn/"
+,"RachelEnglish":"https://rachelsenglish.com/"
+ };
+var vehicleWebsites={
+"汽车之家":"https://www.autohome.com.cn"
+}
+
+var finWebsites ={"雪球":"https://xueqiu.com/",
+"华尔街见闻":"https://wallstreetcn.com/",
+"FT中文网":"https://www.ftchinese.com/",
+"巨潮资讯":"http://www.cninfo.com.cn",
+"IBD":"https://www.investors.com/",
+"财新网":"http://www.caixin.com/",
+"华尔街日报":"https://wall-street.com/",
+"yahoo财经":"https://finance.yahoo.com/",
+"智堡":"https://wisburg.com/"}
+
+
+var softwareWebsites={
+"吾爱破解":"https://www.52pojie.cn/"
+,"爱范儿":"https://www.ifanr.com/"
+,"少数派":"https://www.sspai.com"
+,"异次元软件":"https://www.iplaysoft.com/"
+,"gooles apps":"https://apps.evozi.com/apk-downloader/"
+,"AlternativeTo":"https://alternativeto.net/"
+,"软餐":"https://www.ruancan.com/"
+,"盒子部落":"https://www.hezibuluo.com/"
+,"apk.tools":"https://apk.tools/"
+,"Softonic":"https://en.softonic.com/"
+,"techspot":"https://www.techspot.com"
+,"正版中国":"https://getitfree.cn/"
+,"ITellYou":"https://msdn.itellyou.cn/"
+,"TechBench(Windows Download)":"https://tb.rg-adguard.net/public.php"
+,"GitHub库神奇视窗":"https://amazing-apps.gitbook.io/windows-apps-that-amaze-us/"
+,"Windows/Awesome":"https://github.com/Awesome-Windows/Awesome"
+,"slant":"https://www.slant.co/"
+,"PortableSoft":"https://www.portablesoft.org/"
+,"小众软件":"http://www.appinn.com"
+,"酷安":"https://www.coolapk.com"
+,"豌豆荚":"https://www.wandoujia.com/"
+};
+
+
+var programWebsites ={"github":"https://github.com/",
+"伯乐在线":"http://www.jobbole.com/",
+"博客园":"https://www.cnblogs.com",
+"iteye":"https://www.iteye.com/",
+"iteye":"https://cmder.app/",
+"tutorialspoint":"http://tutorialspoint.com",
+"runoob":"http://www.runoob.com/",
+"牛客":"https://www.nowcoder.com/",
+"SQLZoo":"https://sqlzoo.net/",
+"w3cSchool.cn":"http://www.w3cschool.cn/",
+"w3school.com.cn":"http://www.w3school.com.cn/",
+"stackoverflow":"https://stackoverflow.com/",
+"思否":"https://segmentfault.com/",
+"codepen":"http://codepen.io/",
+"jsbin":"http://jsbin.com",
+"jsfiddle":"http://jsfiddle.net/"
+};
+
+var videoWebsites ={
+"BiliBili":"https://www.bilibili.com/"
+,"BtNull":"https://www.btnull.si"
+,"茶杯狐":"https://www.cupfox.cc/"
+,"旋风视频":"https://miao101.com/"
+,"m3u8播放器":"https://www.m3u8play.com/"
+,"freeintertv":"http://www.freeintertv.com/main"
+,"10000top":"http://www.10000top.com/"
+,"电影天堂":"https://www.dy2018.com/"
+,"微博党视频下载":"http://weibodang.cn/"
+,"mixkit":"https://mixkit.co"
+,"savefrom":"https://en.savefrom.net/"
+,"腾讯视频":"https://v.qq.com/"
+,"PPTV":"http://www.pptv.com/"
+,"爱奇艺":"http://www.iqiyi.com"
+/*btnull国际线路：
+https://www.btnull.org
+https://www.btnull.si
+中国大陆线路：
+https://www.btnull.nu
+https://www.btnull.in
+https://www.btnull.fun
+其他网址：
+https://www.btnull.com-->*/
+
+};
+
+var funWebsites ={"DoItYouself":"https://www.doityourself.com/",
+"ehow":"https://www.ehow.com/",
+"shortcut":"https://shortcutworld.com",
+"howcast":"https://www.howcast.com/",
+"wikihow":"https://zh.wikihow.com/",
+"TED":"https://www.ted.com/",
+"chiphell":"https://www.chiphell.com/",
+"纪录片":"http://www.jlpcn.net/",
+"左岸读书":"http://www.zreading.cn/"};
+
+var toolsWebsites={"在线图片转换":"https://jinaconvert.com/cn/",
+"Toolfk在线工具箱":"https://www.toolfk.com/",
+"一个工具箱":"http://www.atoolbox.net/",
+"爱资料工具":"https://www.toolnb.com/",
+"google图片压缩":"https://squoosh.app/",
+"B站视频下载":"https://xbeibeix.com/api/bilibili/",
+"速盘":"https://www.speedpan.com",
+"PS.photopea":"https://www.photopea.com/",
+"PS.uupoop":"https://www.uupoop.com/",
+"拷贝兔":"https://cp.anyknew.com/",
+"油猴":"http://www.tampermonkey.net/",
+"Greasy Fork":"https://greasyfork.org/zh-CN"
+};
+
+
+
+var designWebsites ={"设计师网址导航":"http://pmgeek.net/"
+,"搜图导航":"https://www.91sotu.com/"
+,"站酷":"https://www.zcool.com.cn"
+,"stockIcons":"https://www.stockio.com"
+,"花瓣":"https://huaban.com/"
+,"沙沙野":"https://www.ssyer.com/home"
+,"unsplash":"https://unsplash.com/"
+,"Pixabay":"http://www.pexels.com/"
+,"freeimages":"http://cn.freeimages.com"
+,"wallpaperswide":"http://wallpaperswide.com/"
+,"FindA.Photo":"http://finda.photo"
+,"StockSnap":"https://stocksnap.io/"
+,"picjumbo":"https://picjumbo.com/"
+,"Visual Hunt":"https://visualhunt.com/"
+,"Photock":"http://pngimg.com/"
+,"演界":"http://www.yanj.cn/"
+,"锐普PPT":"http://www.rapidbbs.cn/"};
+
+var GfwWebsites={
+"华尔街日报中文":"https://cn.wsj.com/"
+,"谷歌":"https://www.google.com"
+,"维基":"https://zh.wikipedia.org"
+,"蓝灯":"https://getlantern.org/zh_CN/index.html"
+,"Quora":"https://www.quora.com"
+,"南华早报":"https://www.scmp.com/"
+,"Reddit":"https://www.reddit.com/"
+,"SSR":"https://www.ssrshare.com/threads/7/"
+,"CNET":"http://download.cnet.com/"
+,"ApkPure":"https://apkpure.com"
+,"Apk4Fun":"https://www.apk4fun.com"
+,"UrlGot":"https://www.urlgot.com/zh_CN/"
+};
+
+
+
+var psWebsites ={"photoshopessentials":"https://www.photoshopessentials.com/"
+,"photoshopstar":"https://photoshopstar.com/"
+,"adobeTv":"http://tv.adobe.com/"
+,"good-tutorials":"www.good-tutorials.com"
+,"psWish":"http://pswish.com/"
+,"loreleiwebdesign":"http://loreleiwebdesign.com/"
+,"psdTuts":"https://design.tutsplus.com/"
+,"hv-designs":"http://www.hv-designs.co.uk/"
+,"photoshoptutorial":"https://www.photoshoptutorials.ws/"
+,"psdFan":"http://psd.fanextra.com/"
+,"youthedesigner":"http://youthedesigner.com/"
+,"psdFan":"http://psd.fanextra.com/"
+,"Abduzeedo":"https://abduzeedo.com/"
+,"designstacks":"http://designstacks.net/"
+,"layersmagazine":"https://layersmagazine.com/"
+};
+
+var discoveryWebsites ={
+"fosshub":"https://www.fosshub.com"
+,"运营猫":"https://dh.woshipm.com/"
+,"虫部落快搜":"https://search.chongbuluo.com/"
+,"大数据":"http://hao.199it.com/"
+,"和鲸社区":"https://www.kesci.com/"
+,"5118":"https://www.5118.com/"
+,"广告查查":"https://www.adbug.cn/"
+,"新榜":"https://www.newrank.cn/"
+,"top_websites":"https://www.rankranger.com/top-websites"
+};
+var techMediaWebsites ={
+"快公司":"https://www.fastcompany.com/"
+,"科学美国人":"https://www.scientificamerican.com/"
+,"哈佛商业评论":"https://hbr.org/"
+,"MIT Review":"https://www.technologyreview.com/"
+,"WIRED":"https://www.wired.com/"
+,"福布斯":"https://www.forbes.com/#6c68190b2254"
+,"华盛顿邮报":"https://www.washingtonpost.com/"
+,"entrepreneur":"https://www.entrepreneur.com/"
+,"PCWorld":"https://www.pcworld.com/"
+,"laptop":"https://www.laptopmag.com/"
+,"HowToGeek":"https://www.howtogeek.com/"
+,"9to5Mac":"https://9to5mac.com/"
+,"cnet":"https://www.cnet.com/"
+,"techcrunch":"https://techcrunch.com/"
+,"zdnet":"https://www.zdnet.com/"
+,"engadget":"https://www.engadget.com/"
+,"未来主义":"https://futurism.com/"
+,"威锋":"https://www.feng.com/"
+,"zealer":"https://www.zealer.com/"
+,"数码潮流":"https://www.digitaltrends.com/"
+,"theverge":"https://www.theverge.com/"};
+
+var mailWebsites={"临时邮箱":"http://24mail.chacuo.net/",
+"10分钟邮箱":"http://mail.bccto.me/",
+"QQ邮箱":"https://mail.qq.com/",
+"163邮箱":"https://mail.163.com/",
+"hotmail":"https://outlook.live.com/owa/",
+"gmail":"https://mail.google.com/"}
+
+var ebookWebsites ={
+"虫部落":"https://ebook.chongbuluo.com/"
+,"lorefree":"https://ebook2.lorefree.com/"
+//,"iread.cf":"http://www.iread.cf/"
+,"知轩藏书":"https://zxcs.info/"
+,"Anna’s Archive":"https://annas-archive.org/"
+,"ZLibrary":"https://1lib.education/"//"https://1lib.limited/"//"https://z-lib.org/","b-ok":"https://b-ok.cc/"
+,"manybooks":"http://manybooks.net"
+//,"周读":"http://www.ireadweek.com/"
+,"鸠摩":"https://www.jiumodiary.com/"
+,"书伴":"https://bookfere.com/"
+//,"cnepubee":"http://cn.epubee.com/"
+,"三秋书屋":"https://www.d4j.cn/"
+,"内酷网":"http://neikuw.com/"
+,"ixdzs":"https://www.ixdzs.com/"
+,"sobooks":"https://sobooks.cc/"
+,"gen.lib":"http://gen.lib.rus.ec/ "
+,"onlinebooks":"http://onlinebooks.library.upenn.edu/ "
+,"古登堡":"http://www.gutenberg.org/ "
+,"世界数字图书馆":"https://www.wdl.org/zh/"
+,"图灵":"http://www.ituring.com.cn/book?tab=free"
+,"salttiger":"https://salttiger.com/ "
+,"shuge":"https://shuge.org/"
+,"bookboon":"https://bookboon.com/en"
+,"digilibraries":"http://digilibraries.com/"
+,"planetebook":"https://www.planetebook.com/"
+,"bartleby":"http://www.bartleby.com/"
+,"nap.edu":"https://www.nap.edu/ "
+,"arxiv":"https://arxiv.org/"
+,"英文小说":"https://avxhm.se/"
+,"socialsciences":"https://socialsciences.mcmaster.ca/econ/ugcm/3ll3/ "
+,"zum.de":"https://www.zum.de/portal/"
+};
+
+
+var webCategoryStrToObj ={
+"sportsWebsites":sportsWebsites,
+"commonWebsites":commonWebsites, 
+"socialWebsites":socialWebsites,  
+"govWebsites":govWebsites,
+"videoWebsites":videoWebsites,  
+"shoppingWebsites":shoppingWebsites,  
+"programWebsites":programWebsites,  
+"techMediaWebsites":techMediaWebsites,
+"softwareWebsites":softwareWebsites,
+"finWebsites":finWebsites,
+"designWebsites":designWebsites,  
+"navWebsites":navWebsites, 
+"toolsWebsites":toolsWebsites,
+"sportHealthWebsites":sportHealthWebsites,
+"funWebsites":funWebsites,
+"discoveryWebsites":discoveryWebsites,
+"learningWebsites":learningWebsites,
+"mailWebsites":mailWebsites,
+"childrenWebsites":childrenWebsites,
+"ebookWebsites":ebookWebsites,
+"travelWebsites":travelWebsites,
+"complaintWebsites":complaintWebsites,
+"sohoWebsites":sohoWebsites,
+"peopleWebsites":peopleWebsites,
+"writtingWebsites":writtingWebsites,
+"vehicleWebsites":vehicleWebsites,
+"languageWebsites":languageWebsites,
+"psWebsites":psWebsites,
+"GfwWebsites":GfwWebsites,
+"nativeWebsites":nativeWebsites,
+"houseWebsites":houseWebsites,
+"deepWebsites":deepWebsites,
+"officialWebsites":officialWebsites,
+"businessWebsites":businessWebsites
+};
+
+
+
+/*搜索部分*/
+var sites = [
+{
+      "name": "Yandex",
+      "id": "yandex",
+	  "color": "success",
+      "queryUrl": "https://yandex.com/search/?text={}"
+    },
+    {
+      "name": "百度",
+      "id": "baidu",
+      "queryUrl": "https://www.baidu.com/s?wd={}"
+    },
+    {
+      "name": "谷歌",
+      "id": "google",
+      "queryUrl": "http://www.google.com/search?q={}"
+    },
+    {
+      "name": "搜狗",
+      "id": "sogou",
+      "queryUrl": "https://www.sogou.com/web?query={}"
+    },
+    {
+	"name": "必应",
+	 "id": "biying",
+	"queryUrl": "https://cn.bing.com/search?q={}"
+    },
+		
+    {
+      "name": "京东",
+      "id": "jd",
+      "queryUrl": "http://search.jd.com/Search?enc=utf-8&keyword={}"
+    },
+    {
+      "name": "天猫",
+      "id": "tmall",
+      "queryUrl": "https://list.tmall.com/search_product.htm?q={}",
+      "display": false
+    },
+    {
+      "name": "淘宝",
+      "id": "taobao",
+      "queryUrl": "https://s.taobao.com/search?q={}"
+    },
+    {
+      "name": "微信",
+      "id": "weixin",
+      "queryUrl": "http://weixin.sogou.com/weixin?type=2&query={}&ie=utf8"
+		},
+    {
+      "name": "知乎",
+      "id": "zhihu",
+      "queryUrl": "https://www.zhihu.com/search?q={}"
+    },{
+      "name": "百科",
+      "id": "baike",
+      "queryUrl": "https://baike.baidu.com/item/{}"
+    },
+    {
+      "name": "微博",
+      "id": "weibo",
+      "queryUrl": "http://s.weibo.com/weibo/{}"
+    },
+    {
+      "name": "豆瓣",
+      "id": "douban",
+      "queryUrl": "https://www.douban.com/search?q={}"
+    },
+    {
+      "name": "网盘1",
+      "id": "panci",      
+      "queryUrl": "https://www.cilimao.cc/search?word={}&page=1"
+    },
+   {
+		  "name": "网盘2",
+		  "id": "wangpan007",
+		  "queryUrl": "https://wangpan007.com/share/kw?keyword={}",
+			"color": "success",
+			 "display": false
+    },					
+		
+    {
+      "name": "影视",
+      "id": "ziyuan",
+      "queryUrl": "http://ifkdy.com/?q={}&p=1"
+    },
+    {
+      "name": "地图",
+      "id": "ditu",
+      "queryUrl": "http://ditu.amap.com/search?query={} "
+    }
+  ];
+
+/*上面是数据部分*/
+
+//输入："sportsWebsites" 输出：sportsWebsites
+function getwebCategoryObj(websitesStr){	
+	return webCategoryStrToObj[websitesStr];
+}
+
+var webCategoryNum =0;
+////加载websitesCategory
+function loadWebCategory(){
+	var webCategoryStr="";
+	$.each(webCategory,function(name_en,name_cn){ 
+
+	//if(webCategoryNum<9){  
+	webCategoryStr +='<div class="col-sm-4 col-lg-4 block column">'+
+            '<div class="col-sm-12 col-lg-12 building ">'+
+		'<div class="row block-header clearfix '+name_en+'">'+
+                '<div class="col-sm-12 col-lg-12 block-desc">'+
+                  '<div class="col-sm-4 col-lg-4 block-name column">'+
+                    '<a class="block-name" href="#">'+
+                     name_cn +
+                    '</a>'+
+                  '</div>'+
+	  		 '<div class="col-sm-4 col-lg-4 placeholder"></div>'+
+                 	 '<div class="col-sm-4 col-lg-4 placeholder"></div>'+
+              '</div>'+
+             '</div>';
+webCategoryStr +='</div></div>';
+	//webCategoryNum++;	
+//}//end if webCategoryNum<9
+}); //end each
+	$("div.container.blocks").append(webCategoryStr);
+}
+
+
+$(document).on("keydown", hotkeyListener);//hotkeyListener，监听键盘快捷键，当自定义模式、关于、快捷键等弹层打开时取消监听，自定义退出或关闭弹层后重新打开监听
+        function hotkeyListener(){
+          var k = event.which || event.keyCode;	
+          switch(k){
+		case 17:$(document).off("keydown", hotkeyListener)
+  			setTimeout(function(){$(document).on("keydown", hotkeyListener)},1500);
+ 			 break;
+		case 49:
+  			$("#moreSitesModal").modal();
+ 			 break;
+		case 50:
+                    $("#hotkeyModal").modal();
+ 			 break;
+		case 51:
+			$("#searchModal").modal();
+ 			 break;
+		default:
+	
+		var obj = $("a.hotkey" + k);
+           	if(obj.attr("href") != undefined){
+               		obj.addClass("hover");  						
+                	 window.open(obj.attr("href"));
+                 	 obj.removeClass("hover");
+                	
+             		 }
+ 		 }	  
+            }
+
+//加载主页
+function loadMailPage(){
+	loadWebCategory();
+	loadWebsites();	
+	addHotkeyClassTowWebsite();
+}
+loadMailPage();
+/*hotkey部分*/
+//addHotkeyClassTowWebsite();
+
+function addHotkeyClassTowWebsite(){
+	
+$.each(hotkey,function(key,value){
+
+	     var hotkeyInCodeAsString = key.toUpperCase().charCodeAt(0);
+             var hotkeyInClassName = 'hotkey' + hotkeyInCodeAsString;
+	$("a."+value).addClass(hotkeyInClassName);
+	
+   var website_name = $('a.' + hotkeyInClassName).children('span').text();
+            $('div#' + 'hotkey-modal-keyboard' + ' span.' + key).next().text(website_name);
+	});
+  }
+/*load 分类下的网站*/
+function loadWebsites(){
+$.each(webCategory, function(webCategoryStr) {    
+
+	if(getwebCategoryObj(webCategoryStr)){
+     	var websitesObj =getwebCategoryObj(webCategoryStr);
+ var i=0;
+$.each(websitesObj,function(websiteName,websiteUrl){   
+if(i<9){ 
+   	var websitesHtmlStr="";
+  websitesHtmlStr +='<div class="col-sm-4 col-lg-4 website">'+
+                  '<a href="'+websiteUrl+'" class="website '+websiteName+' ">'+
+                    '<span>'+websiteName+'</span>'+
+                  '</a>'+
+                '</div>';
+
+$("."+webCategoryStr).parent().append(websitesHtmlStr);
+$("."+webCategoryStr).on("click",function(){
+ $('#moreSitesModal').modal('show');
+$('div.website-grid ul.website-categories li').removeClass('selected');
+ $('div.website-grid ul.website-categories li.'+webCategoryStr).addClass('selected');
+             
+//initiateWebsiteCategoriesInWebsiteGrid();
+         displayWebsitesOfSelectedCategory(webCategoryStr);
+});
+ 
+i++;
+}//end if i
+
+  }); //end each1                 
+ } //end if getwebCategoryObj
+});
+};
+
+/*上面是主页面函数*/
+
+
+/*更多站点弹层JS*/
+ $('#moreSitesModal').on('show.bs.modal', function(){
+          $('div.website-grid').css('display','inherit');
+          //$(document).off("keydown", hotkeyListener);
+          //loadWebCategory("moreSites");
+          initiateWebsiteCategoriesInWebsiteGrid();
+          displayWebsitesOfSelectedCategory('commonWebsites');
+          initiateClickListenerForLiInMoreWebsiteGrid();
+	 });
+/*search弹层JS*/
+$('#searchModal').on('show.bs.modal', function(){
+          $(document).off("keydown", hotkeyListener);
+	$("#search-btns").children('input').remove();	
+          $.each(sites, function(i, site) {
+        if ('display' in site && site.display === false) {
+          return true;
+        } 
+	 var color = 'color' in site ? site.color : 'primary';
+	
+	searchBtn ='<input type="submit" id='+site.id+' value='+site.name+' button type="button"'
+	+'class="btn btn-'+color+'"/>'; 
+	
+        $("#search-btns").append(searchBtn);
+
+$("#" + site.id).click(function() {
+          var searchUrl = site.queryUrl.replace("{}", $('#search').val());
+          if (searchUrl) {
+            window.open(searchUrl, "_blank");
+            return false;
+          }
+        })     
+    });
+	 });
+
+$('#searchModal').on('hide.bs.modal',function(){
+	$(document).on("keydown", hotkeyListener);
+	//$("#search-btns").remove(searchBtn);	
+});
+//initiateWebsiteCategoriesInWebsiteGrid，加载json数据完成后，分类数组已经被初始化，调用该方法展示常用分类下的站点
+function initiateWebsiteCategoriesInWebsiteGrid(){
+	var websiteCategoriesInHtmlAsStr = '';
+
+$.each(webCategory,function(name_en,name_cn){
+
+websiteCategoriesInHtmlAsStr += '<li class="website-category '+name_en+'" name="'+name_en+'"><span>' + name_cn + '</span></li>';
+});//end each
+
+$('div.website-grid ul.website-categories').children('li').remove();
+	
+	$('div.website-grid ul.website-categories').append(websiteCategoriesInHtmlAsStr);
+	$('div.website-grid ul.website-categories li').each(function(){
+
+            if( $(this).attr("name") == 'commonWebsites' ){
+              $(this).addClass('selected');
+            }
+          });
+//website-grid的category被鼠标悬停的动作
+          $('div.website-grid li.website-category').hover(
+            function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+          });
+	
+
+}//end initiateWebsiteCategoriesInWebsiteGrid 更多弹层站点分类函数
+
+//点击website-grid的分类标签后，从Map中找到该分类对应站点并展示，如果站点为空，提示暂无该类站点，其实最好的办法是压根就不展示为空的分类
+        function displayWebsitesOfSelectedCategory(selected_category_name){
+       		var websitesInHtmlAsStr="";	
+    
+     		var websitesObj =getwebCategoryObj(selected_category_name);
+		if(!websitesObj){
+			alert("该分类下无网站");
+			return false}
+		$.each(websitesObj,function(websiteName,websiteUrl){
+			
+		websitesInHtmlAsStr += '<li class="website"><a href="'+websiteUrl+'" class="website">'+
+                    '<span class="website">'+websiteName+'</span></a></li>';	         
+          $('div.website-grid ul.websites li').remove();
+          $('div.website-grid ul.websites').append(websitesInHtmlAsStr);
+      //website-grid的category被鼠标悬停的动作        
+	$('div.website-grid ul.websites li.website').hover(
+            function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+          });       
+	$("a.website").attr("target","_blank");
+	    });  
+        }
+//displayWebsitesOfSelectedCategory  更多弹层站点分类中的网站函数
+
+//更多站点弹层 点击网站分类事件
+function initiateClickListenerForLiInMoreWebsiteGrid(){
+          //编辑层中的div.website-grid的category被鼠标点击时，替换下方站点序列为分类名对应的站点
+          $('div#more-website-grid li.website-category').on('click', function(){
+            var category_name = $(this).attr("name");
+            $(this).siblings('.selected').removeClass('selected');
+            $(this).addClass('selected');
+            displayWebsitesOfSelectedCategory(category_name);
+            //initiateEventListenerForWebsiteInMoreWebsiteGrid();
+          });
+        }
+
+        //键盘面板的按键被鼠标悬停时的动作
+        $('div#hotkey-modal-keyboard li.hotkey-modal-key').hover(
+          function(){
+            $(this).addClass('hover');
+            $(this).css('cursor','pointer');					
+          }, function(){
+            $(this).removeClass('hover');
+            $(this).css('cursor','default');
+        });
+
+/*------------------------事件侦听部分------------------------*/
+        //站点分类被鼠标悬停时的动作
+        $('a.block-name').hover(
+          function(){
+            $(this).addClass('hover');
+          }, function(){
+            $(this).removeClass('hover');
+        });
+$(window).resize();
+       $("a.website").attr("target","_blank");
+        $("a.website").hover(
+          function(){
+		$(this).addClass("hover");
+          }, function(){
+            $(this).removeClass("hover");
+          }
+        );
+        $("a.website").click(function(){
+          $(this).removeClass("hover");
+        });
+});
+//</script> <script src="http://byr.wiki/assets/js/baidu.js"></script>
+</body>
+</html>
